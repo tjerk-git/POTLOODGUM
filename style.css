@@ -1,0 +1,19 @@
+* {
+    max-inline-size: 60ch;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body,
+  div,
+  header,
+  nav,
+  main,
+  footer {
+    max-inline-size: none;
+  }
+
+:root {
+    font-size: calc(1rem + 0.5vw);
+}
+
