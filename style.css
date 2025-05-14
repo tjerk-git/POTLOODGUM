@@ -18,17 +18,66 @@
     --color-dark-gray: #2f2f2f;
     --color-pink-dark: #c8375f;
     --color-purple: #a55c8e;
-    --color-faded-white: #e2e0e0;
+    --color-faded-white: #f0f0f0;
 }
 
+
+.pattern-pink-to-dark-pink{
+--s: 20px; /* control the size*/
+
+    --_g: conic-gradient(at 50% 25%,#0000 75%,var(--color-pink-light) 0);
+    background:
+    var(--_g),var(--_g) var(--s) var(--s),
+    var(--_g) calc(2*var(--s)) calc(2*var(--s)),
+    var(--_g) calc(3*var(--s)) calc(3*var(--s)),
+    repeating-linear-gradient(135deg,var(--color-dark-gray) 0 12.5%,var(--color-pink-dark) 0 25%);
+    background-size: calc(4*var(--s)) calc(4*var(--s))
+}
+
+.pattern-dark-pink-to-purple{
+    --s: 20px; /* control the size*/
+    
+        --_g: conic-gradient(at 50% 25%,#0000 75%,var(--color-purple) 0);
+        background:
+        var(--_g),var(--_g) var(--s) var(--s),
+        var(--_g) calc(2*var(--s)) calc(2*var(--s)),
+        var(--_g) calc(3*var(--s)) calc(3*var(--s)),
+        repeating-linear-gradient(135deg,var(--color-pink-dark) 0 12.5%,var(--color-pink-light) 0 25%);
+        background-size: calc(4*var(--s)) calc(4*var(--s))
+    }
 
 
 body{
     margin: 0;
     color: var(--color-dark-gray);
     background: var(--color-faded-white);
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    font-family: "Darker Grotesque Variable";
 }
+
+
+.cutting-line { 
+border-top: 1px dashed #8c8b8b; 
+} 
+.cutting-line:after { 
+content: '\002702'; 
+display: inline-block; 
+position: relative; 
+top: -12px; 
+left: 40px; 
+padding: 0 3px; 
+background: #f0f0f0; 
+color: #8c8b8b; 
+font-size: 18px; 
+}
+
+.basic-scribble {
+    display: block;
+    width: 100vw;
+    height: 2px;
+    margin: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,1 Q5,0 10,1 T20,1 T30,1 T40,1 T50,1 T60,1 T70,1 T80,1 T90,1 T100,1' stroke='black' fill='none'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+  }
 
 * {
     max-inline-size: 60ch;
@@ -56,6 +105,8 @@ p {
 }
 
 
+
+
 h1 {
     font-size: 2.5rem;
 }
@@ -80,10 +131,13 @@ h6 {
     font-size: 1rem;
 }
 
+hr{
+    border-top: 3px double #8c8b8b;
+}
+
 .giant-title-boi-container{
     overflow-x:hidden;
 }
-
 
 
 section{
@@ -91,8 +145,26 @@ section{
 }
 
 .giant-title-boi{
-    font-size:8rem;
+    font-size:6rem;
+}
 
+.signs{
+    font-size:1rem;
+}
+
+.giant-title-boi span{
+    color: var(--color-pink-light);
+}
+
+.logo-container{
+    overflow-x:hidden;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container img{
+    width:12rem;
 }
 
 .color-pink-light {
@@ -115,6 +187,44 @@ section{
     background-color: var(--color-purple);
 }
 
-.color-white{
+.color-white{ 
     background-color: var(--color-faded-white);
+
+}
+
+blockquote {
+    position: relative;
+    font-size: 1.2em;
+    margin: 2em 4em;
+    padding: 1.5em;
+    color: #333;
+    line-height: 1.6;
+}
+
+blockquote:before {
+    content: "\201C";
+    position: absolute;
+    top: -0.5em;
+    left: -0.5em;
+    font-size: 4em;
+    color: #ddd;
+    font-family: Georgia, serif;
+}
+
+blockquote:after {
+    content: "\201D";
+    position: absolute;
+    bottom: -0.8em;
+    right: -0.5em;
+    font-size: 4em;
+    color: #ddd;
+    font-family: Georgia, serif;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    margin-top: 1em;
+    font-style: normal;
+    font-weight: bold;
 }

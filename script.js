@@ -9,7 +9,7 @@ window.addEventListener('scroll', () => {
         thebigboi.innerText = scrambled;
         
         setTimeout(() => {
-            thebigboi.innerText = 'POTLOODGUM';
+            thebigboi.innerHTML = `<span class="signs">!#$^%</span><span>POTLOODGUM</span><span class="signs">#@*&^</span>`;
             lastScrollY = 0;
         }, 5000);
 
