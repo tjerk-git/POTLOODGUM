@@ -18,33 +18,53 @@
     --color-dark-gray: #2f2f2f;
     --color-pink-dark: #c8375f;
     --color-purple: #a55c8e;
-    --color-faded-white: #f0f0f0;
+    --color-faded-white: #f0eeee;
+}
+.nav-list {
+    padding: 1rem;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-
-.pattern-pink-to-dark-pink{
---s: 20px; /* control the size*/
-
-    --_g: conic-gradient(at 50% 25%,#0000 75%,var(--color-pink-light) 0);
-    background:
-    var(--_g),var(--_g) var(--s) var(--s),
-    var(--_g) calc(2*var(--s)) calc(2*var(--s)),
-    var(--_g) calc(3*var(--s)) calc(3*var(--s)),
-    repeating-linear-gradient(135deg,var(--color-dark-gray) 0 12.5%,var(--color-pink-dark) 0 25%);
-    background-size: calc(4*var(--s)) calc(4*var(--s))
+.nav-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
 }
 
-.pattern-dark-pink-to-purple{
-    --s: 20px; /* control the size*/
-    
-        --_g: conic-gradient(at 50% 25%,#0000 75%,var(--color-purple) 0);
-        background:
-        var(--_g),var(--_g) var(--s) var(--s),
-        var(--_g) calc(2*var(--s)) calc(2*var(--s)),
-        var(--_g) calc(3*var(--s)) calc(3*var(--s)),
-        repeating-linear-gradient(135deg,var(--color-pink-dark) 0 12.5%,var(--color-pink-light) 0 25%);
-        background-size: calc(4*var(--s)) calc(4*var(--s))
-    }
+.nav-list a {
+    text-decoration: none;
+    color: var(--color-dark-gray);
+}
+
+.nav-list a:hover {
+    color: var(--color-pink-light);
+}
+
+.end-of-page{
+    height: 2rem;
+
+    background-position: center;
+    margin: 2rem 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-faded-white);
+    border-top: 1px solid var(--color-dark-gray);
+    z-index: 100;
+}
+
+/* Add padding to body to prevent content from being hidden behind footer */
+body {
+    padding-bottom: 4rem;
+}
 
 
 body{
@@ -54,10 +74,47 @@ body{
     font-family: "Darker Grotesque Variable";
 }
 
+.introduction-container{
+    padding: 1rem;
+    max-width: 65ch;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.highlight-marker {
+    background-color: rgba(255, 249, 82, 0.3);
+    padding: 0 4px;
+    border-radius: 8px 2px 8px 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    transform: rotate(-0.5deg);
+    display: inline-block;
+}
+
+.highlight-marker-blue {
+    background-color: rgba(47, 116, 181, 0.3);
+    padding: 0 4px;
+    border-radius: 8px 2px 8px 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    transform: rotate(-0.5deg);
+    display: inline-block;
+}
+
+.highlight-marker-pink {
+    background-color: rgba(242, 121, 165, 0.3);
+    padding: 0 4px;
+    border-radius: 8px 2px 8px 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    transform: rotate(-0.5deg);
+    display: inline-block;
+}
 
 .cutting-line { 
-border-top: 1px dashed #8c8b8b; 
+    border-top: 1px dashed #8c8b8b; 
 } 
+
 .cutting-line:after { 
 content: '\002702'; 
 display: inline-block; 
@@ -91,6 +148,7 @@ font-size: 18px;
   header,
   nav,
   main,
+  hr,
   footer {
     max-inline-size: none;
 }
@@ -103,8 +161,6 @@ h1, h2, h3, h4, h5, h6 {
 p {
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
-
 
 
 h1 {
@@ -131,8 +187,11 @@ h6 {
     font-size: 1rem;
 }
 
-hr{
+hr {
     border-top: 3px double #8c8b8b;
+    width: 100%;
+    margin: 0;
+
 }
 
 .giant-title-boi-container{
@@ -168,28 +227,31 @@ section{
 }
 
 .color-pink-light {
-    background-color: var(--color-pink-light);
+    border-left: 1rem solid var(--color-pink-light);
 }
 
 .color-blue {
-    background-color: var(--color-blue);
+    border-left: 1rem solid var(--color-blue);
 }
 
 .color-dark-gray {
-    background-color: var(--color-dark-gray);
+    border-left: 1rem solid var(--color-dark-gray);
 }
 
 .color-pink-dark {
-    background-color: var(--color-pink-dark);
+    border-left: 1rem solid var(--color-pink-dark);
 }
 
 .color-purple {
-    background-color: var(--color-purple);
+    border-left: 1rem solid var(--color-purple);
 }
 
 .color-white{ 
-    background-color: var(--color-faded-white);
+    border-left: 1rem solid var(--color-faded-white);
+}
 
+.seperator{
+    border-bottom:1px solid var(--color-dark-gray);
 }
 
 blockquote {
@@ -228,3 +290,4 @@ blockquote cite {
     font-style: normal;
     font-weight: bold;
 }
+
