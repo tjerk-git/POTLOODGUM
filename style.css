@@ -1,3 +1,22 @@
+/* Base styles and resets */
+* {
+    max-inline-size: 60ch;
+    box-sizing: border-box;
+}
+
+html,
+body,
+section,
+div,
+header,
+nav,
+main,
+hr,
+footer {
+    max-inline-size: none;
+}
+
+/* Font declarations */
 @font-face {
     font-family: "Darker Grotesque Variable";
     font-style: normal;
@@ -11,6 +30,7 @@
         U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Variables */
 :root {
     font-size: calc(1rem + 0.5vw);
     --color-pink-light: #f279a5;
@@ -20,9 +40,46 @@
     --color-purple: #a55c8e;
     --color-faded-white: #f0eeee;
 }
+
+/* Typography */
+body {
+    margin: 0;
+    color: var(--color-dark-gray);
+    background: var(--color-faded-white);
+    padding-bottom: 4rem;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Create a wrapper for content that needs padding */
+.content-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top:2rem;
+    margin-bottom:2rem;
+    overflow-x: hidden;
+    
+}
+
+.content-wrapper-sunk{
+    padding:1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Darker Grotesque Variable", sans-serif;
+    margin: 0;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Layout components */
 .nav-list {
     padding: 1rem;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: flex-end;
 }
@@ -37,18 +94,15 @@
 
 .nav-list a {
     text-decoration: none;
-    color: var(--color-dark-gray);
+    color: var(--color-faded-white);
 }
 
 .nav-list a:hover {
     color: var(--color-pink-light);
 }
 
-.end-of-page{
-    height: 2rem;
-
-    background-position: center;
-    margin: 2rem 0;
+img{
+    width:100%;
 }
 
 footer {
@@ -56,75 +110,79 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--color-faded-white);
-    border-top: 1px solid var(--color-dark-gray);
+    background-color: var(--color-dark-gray);
     z-index: 100;
 }
 
-/* Add padding to body to prevent content from being hidden behind footer */
-body {
-    padding-bottom: 4rem;
+.images-container{
+    margin-top:1rem;
 }
 
-
-body{
-    margin: 0;
-    color: var(--color-dark-gray);
-    background: var(--color-faded-white);
-    font-family: "Darker Grotesque Variable";
+figure{
+    margin-left:0;
 }
 
-.introduction-container{
-    padding: 1rem;
+/* Content containers */
+.introduction-container {
     max-width: 65ch;
     font-size: 1.2rem;
     line-height: 1.5;
 }
 
-.highlight-marker {
-    background-color: rgba(255, 249, 82, 0.3);
+.giant-title-boi-container {
+    overflow-x: hidden;
+}
+
+.logo-container {
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo-container img {
+    width: 10rem;
+}
+
+/* Decorative elements */
+.highlight-marker,
+.highlight-marker-blue,
+.highlight-marker-pink {
     padding: 0 4px;
     border-radius: 8px 2px 8px 2px;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     transform: rotate(-0.5deg);
     display: inline-block;
+}
+
+.highlight-marker {
+    background-color: rgba(255, 249, 82, 0.3);
 }
 
 .highlight-marker-blue {
     background-color: rgba(47, 116, 181, 0.3);
-    padding: 0 4px;
-    border-radius: 8px 2px 8px 2px;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    transform: rotate(-0.5deg);
-    display: inline-block;
 }
 
 .highlight-marker-pink {
     background-color: rgba(242, 121, 165, 0.3);
-    padding: 0 4px;
-    border-radius: 8px 2px 8px 2px;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    transform: rotate(-0.5deg);
-    display: inline-block;
 }
 
 .cutting-line { 
-    border-top: 1px dashed #8c8b8b; 
+    border-top: 1px dashed #8c8b8b;
+    width:100dvw;
 } 
 
 .cutting-line:after { 
-content: '\002702'; 
-display: inline-block; 
-position: relative; 
-top: -12px; 
-left: 40px; 
-padding: 0 3px; 
-background: #f0f0f0; 
-color: #8c8b8b; 
-font-size: 18px; 
+    content: '\002702'; 
+    display: inline-block; 
+    position: relative; 
+    top: -12px; 
+    left: 40px; 
+    padding: 0 3px; 
+    background: #f0f0f0; 
+    color: #8c8b8b; 
+    font-size: 18px; 
 }
 
 .basic-scribble {
@@ -132,128 +190,27 @@ font-size: 18px;
     width: 100vw;
     height: 2px;
     margin: 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
     background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,1 Q5,0 10,1 T20,1 T30,1 T40,1 T50,1 T60,1 T70,1 T80,1 T90,1 T100,1' stroke='black' fill='none'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
-  }
-
-* {
-    max-inline-size: 60ch;
-    box-sizing: border-box;
-  }
-  
-  html,
-  body,
-  section,
-  div,
-  header,
-  nav,
-  main,
-  hr,
-  footer {
-    max-inline-size: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Darker Grotesque Variable", sans-serif;
-    margin: 0;
+/* Color variations */
+.color-pink-light {background-color: var(--color-pink-light); }
+.color-blue { background-color: var(--color-blue); }
+.color-dark-gray { background-color: var(--color-dark-gray); }
+.color-pink-dark { background-color: var(--color-pink-dark); }
+.color-purple { background-color: var(--color-purple); }
+.color-white { background-color: var(--color-faded-white); }
+
+.seperator {
+    border-bottom: 1px solid var(--color-dark-gray);
+    margin-left: -1rem;
+    margin-right: -1rem;
 }
 
-p {
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.75rem;
-}
-
-h4 {
-    font-size: 1.5rem;
-}
-
-h5 {
-    font-size: 1.25rem;
-}
-
-h6 {
-    font-size: 1rem;
-}
-
-hr {
-    border-top: 3px double #8c8b8b;
-    width: 100%;
-    margin: 0;
-
-}
-
-.giant-title-boi-container{
-    overflow-x:hidden;
-}
-
-
-section{
-    padding:1rem;
-}
-
-.giant-title-boi{
-    font-size:6rem;
-}
-
-.signs{
-    font-size:1rem;
-}
-
-.giant-title-boi span{
-    color: var(--color-pink-light);
-}
-
-.logo-container{
-    overflow-x:hidden;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-container img{
-    width:12rem;
-}
-
-.color-pink-light {
-    border-left: 1rem solid var(--color-pink-light);
-}
-
-.color-blue {
-    border-left: 1rem solid var(--color-blue);
-}
-
-.color-dark-gray {
-    border-left: 1rem solid var(--color-dark-gray);
-}
-
-.color-pink-dark {
-    border-left: 1rem solid var(--color-pink-dark);
-}
-
-.color-purple {
-    border-left: 1rem solid var(--color-purple);
-}
-
-.color-white{ 
-    border-left: 1rem solid var(--color-faded-white);
-}
-
-.seperator{
-    border-bottom:1px solid var(--color-dark-gray);
-}
-
+/* Blockquote styling */
 blockquote {
     position: relative;
     font-size: 1.2em;
@@ -291,3 +248,88 @@ blockquote cite {
     font-weight: bold;
 }
 
+/* Special elements */
+.giant-title-boi {
+    font-size: 6rem;
+}
+
+.signs {
+    font-size: 1rem;
+}
+
+.giant-title-boi span {
+    color: var(--color-pink-light);
+}
+
+hr {
+    border-top: 3px double #8c8b8b;
+    width: 100%;
+    margin: 0;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.end-of-page {
+    height: 2rem;
+    background-position: center;
+    margin: 2rem 0;
+}
+
+.sunk{
+    margin-bottom:-1.5rem;
+    font-size:4rem;
+}
+
+
+.trading-cards{
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top:1rem;
+}
+
+.card{
+    background:white;
+    padding:1rem;
+    border-radius:10px;
+    min-height:30rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h3{
+    font-size: 3rem;
+}
+
+.card-footer{
+    border-top:1px dashed #2f2f2f;
+    padding:1rem;
+}
+
+
+.event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 16px 0;
+  }
+  
+  .event-info h3 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  .event-info p {
+    margin: 4px 0 0;
+    font-weight: 300;
+    color: #ffffff;
+  }
+  
+  .event-action {
+    color: #ffffff;
+    font-weight: 300;
+    white-space: nowrap;
+  }

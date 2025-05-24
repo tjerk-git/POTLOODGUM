@@ -1,6 +1,17 @@
 const thebigboi = document.querySelector('.giant-title-boi');
 let lastScrollY = 0;
 
+// Scramble text on page load
+window.addEventListener('load', () => {
+    const text = thebigboi.innerText;
+    const scrambled = text.split('').sort(() => Math.random() - 0.5).join('');
+    thebigboi.innerText = scrambled;
+    
+    setTimeout(() => {
+        thebigboi.innerText = 'POTLOODGUM';
+    }, 2000);
+});
+
 window.addEventListener('scroll', () => {
 
     if (window.scrollY >= lastScrollY + 30) {
@@ -9,7 +20,7 @@ window.addEventListener('scroll', () => {
         thebigboi.innerText = scrambled;
         
         setTimeout(() => {
-            thebigboi.innerHTML = `<span class="signs">!#$^%</span><span>POTLOODGUM</span><span class="signs">#@*&^</span>`;
+            thebigboi.innerHTML = `POTLOODGUM`;
             lastScrollY = 0;
         }, 5000);
 
